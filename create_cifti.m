@@ -17,14 +17,14 @@ cifti.cdata(1:91282)=zeros(91282,1);
 cifti.cdata(1:length(cls))=single(cls);
 end
 
-if exist('i_cls_smooth_retest')==1
+if exist('i_cls_final_retest')==1
 cifti.cdata(1:91282)=zeros(91282,1);
-cifti.cdata(1:length(i_cls_smooth_retest))=single(i_cls_smooth_retest);
+cifti.cdata(1:length(i_cls_final_retest))=single(i_cls_final_retest);
 end
 
-if exist('i_cls_smooth')==1
+if exist('i_cls_final')==1
 cifti.cdata(1:91282)=zeros(91282,1);
-cifti.cdata(1:length(i_cls_smooth))=single(i_cls_smooth);
+cifti.cdata(1:length(i_cls_final))=single(i_cls_final);
 end
 
 if exist('k_mask')==1

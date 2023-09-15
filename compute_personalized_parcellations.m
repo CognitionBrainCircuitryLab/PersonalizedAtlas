@@ -35,11 +35,11 @@ tic
 i_cls = kmeans(mat.cortex,k_num,'Distance',distance,'Display','iter','MaxIter',1,'Start',C); 
 toc %took 4.2 min
 
-% smooth 
-i_cls_smooth = smooth_parcellation(i_cls,k_num);
+% final 
+i_cls_final = refine_parcellation(i_cls,k_num);
   %% save
 
- save(save_path,'i_cls_smooth','-v7.3');
+ save(save_path,'i_cls_final','-v7.3');
     end 
 end
 end

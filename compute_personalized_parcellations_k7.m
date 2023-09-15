@@ -2,7 +2,7 @@ function compute_personalized_parcellations_k7(subj,wb_path)
 
 %% load subject files 
 mat=matfile([subj '/' subj '_connectome.mat']);
-
+warning('off','stats:kmeans:FailedToConverge');
 %% make folder to save out to, if needed 
 if ~exist([subj, '/Parcellations'], 'dir')
        mkdir([subj, '/Parcellations'])
@@ -33,15 +33,16 @@ tic
 i_cls = kmeans(mat.cortex,k_num,'Distance',distance,'Display','iter','MaxIter',1,'Start',C); 
 toc %took 5.17 min
 
-% smooth 
-i_cls_smooth = smooth_parcellation(i_cls,k_num);
+% final 
+i_cls_final = refine_parcellation(i_cls,k_num);
   %% save
 
- save(save_path,'i_cls_smooth','-v7.3');
+ save(save_path,'i_cls_final','-v7.3');
     end 
 
     data_path=save_path;
     cifti_path=[subj '/Parcellations/' subj '_k7.dscalar.nii'];
     create_cifti(data_path,cifti_path,wb_path);
 
+warning('on','stats:kmeans:FailedToConverge');
 end

@@ -19,7 +19,7 @@ for count=1:length(klist)
 
     parcellation=load(parcellation_path);
 
-    parcellation=parcellation.i_cls_smooth;
+    parcellation=parcellation.i_cls_final;
 
     network_mask=zeros(91282,1);
     network_mask(1:length(parcellation))=single(parcellation==top_network);
