@@ -31,7 +31,7 @@ load(['GroupCentroids/group_centroids_k' k '.mat']);
 % compute personalized solution using k-nearest neighbor 
 %i_cls = kmeans(cortex,k_num,'Distance',distance,'Display','iter','MaxIter',1,'Start',C); 
 tic
-i_cls = kmeans(mat.cortex,k_num,'Distance',distance,'Display','iter','MaxIter',1,'Start',C); 
+i_cls = kmeans(mat.cortex,k_num,'Distance',distance,'MaxIter',1,'Start',C); 
 toc %took 4.2 min
 
 % final 
